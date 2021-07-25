@@ -33,6 +33,7 @@ class PlanController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['price'] = str_replace(',','.',$data['price']);
         $data['url'] = Str::kebab($request->name);
         $this->repository->create($data);
 
